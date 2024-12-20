@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
 
 env:
-  PACT_BROKER_BASE_URL: https://testdemo.pactflow.io
+  PACT_BROKER_BASE_URL: https://ratedpower.pactflow.io
   PACT_BROKER_TOKEN: ${{ secrets.PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP }}
-  BASE_URL: http://localhost:5000
+#  BASE_URL: http://localhost:5000
   GIT_COMMIT: ${{ github.sha }}
   GIT_REF: ${{ github.ref }}
 
@@ -19,12 +19,7 @@ jobs:
       # note currently PACT_PROVIDER isn't used in the code
         pact_provider:
           [
-            "pactflow-example-provider-springboot",
-            # "pactflow-example-bi-directional-provider-dredd",
-            # "pactflow-example-bi-directional-provider-restassured",
-            # "pactflow-example-bi-directional-provider-postman",
-            # "pactflow-example-provider",
-            # 'pactflow-example-bi-directional-provider-dotnet'
+            "pactflow-example-provider-springboot"
           ]
     steps:
       - uses: actions/checkout@v4
